@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load is_already_applied %}
+{% block title %}
+    Job details
+{% endblock %}
+
+{% block content %}
+
+    <section class="bg-light-gray">
+        <div class="container">
+            <h1 class="heading">{{ job.title }}<br>
+                <small>at <a href="#"> {{ job.company_name }}</a></small>
+            </h1>
+            <div class="job-detail-description"><i class="fa fa-map-marker job__location"> </i>
+                {{ job.location }} | Posted {{ job.created_at|timesince }} |
+                {% if job.type == '1' %}
+                    <span class="badge featured-badge badge-success">Full time</span>
+                {% elif job.type == '2' %}
+                    <span class="badge featured-badge badge-primary">Part time</span>
+                {% else %}
+                    <span style="color: #ffffff;" class="badge featured-badge badge-warning">Internship</span>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h3>Category: {{ job.category }}</h3>
+                    <h5 class="text-info">Salary: Negotiable</h5>
+                    <blockquote class="blockquote">
+                        <p>{{ job.description }}</p>
+                        <div>
+                          <p>Have you submitted a copy of your resume to us? If not, click <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBg1yG7V99gL8NdQMwxdtqSoHzPUad3T8xNb-8N82V7R1XoA/viewform?usp=sf_link">here.</a></p>
+                          <p>All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity or national origin.</p>
+                        </div>
+                    </blockquote>
+                    <div class="job-detail__apply-bottom">
+                        {% if request.user.is_authenticated %}
+                            {% is_already_applied job request.user as is_applied %}
+                            {% if is_applied %}
+                                <input type="button" class="btn btn-outline-white-primary" value="Already applied"/>
+                            {% else %}
+                                <form action="{% url 'jobs:apply-job' job.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="job" value="{{ job.id }}">
+                                    <input type="submit" class="btn btn-outline-white-primary"
+                                           value="Already registered? Apply for this job."/>
+                                </form>
+                            {% endif %}
+                        {% else %}
+                            <form action="{% url 'accounts:login' %}" method="post">
+                                {% csrf_token %}
+                            <input type="submit" class="btn btn-outline-white-primary"
+                                       value="Please login and/or register first."/>
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-3">
+                    <h4>About {{ job.company_name }}</h4>
+                    <p class="job-detail__company-description">{{ job.company_description }}</p>
+                    <p class="job-detail__social social social--outline">
+                        <a href="http://www.geodatait.com" data-toggle="tooltip" data-placement="top" title="Website"
+                           class="link">
+                            <i class="fa fa-link"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/geodata-it-llc" data-toggle="tooltip" data-placement="top" title="LinkedIn" class="linkedin">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com/geodatait" data-toggle="tooltip" data-placement="top" title="Twitter" class="twitter">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="https://github.com/geodata-it" data-toggle="tooltip" data-placement="top" title="Github" class="github">
+                            <i class="fa fa-github"></i>
+                        </a>
+
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

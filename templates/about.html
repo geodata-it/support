@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+
+    <div id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+         class="modal fade">
+        <div role="document" class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="exampleModalLabel" class="modal-title">Customer Login</h4>
+                    <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <input id="email_modal" type="text" placeholder="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input id="password_modal" type="password" placeholder="password" class="form-control">
+                        </div>
+                        <p class="text-center">
+                            <button type="button" class="btn btn-outline-white-primary"><i class="fa fa-sign-in"></i>
+                                Log in
+                            </button>
+                        </p>
+                    </form>
+                    <p class="text-center text-muted">Not registered yet?</p>
+                    <p class="text-center text-muted"><a href="client-register.html"><strong>Register now</strong></a>!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- *** LOGIN MODAL END ***-->
+    <section>
+           <div class="container">
+               <div class="row">
+                   <div class="col-lg-8">
+                     <h2 class="heading">About Geodata IT</h2>
+                     <p>Founded in 2012, Geodata IT, LLC was named the Minority Owned Small Business of the Year for Eastern Missouri for 2017 by the U.S. Small Business Administration (SBA) – St. Louis District Office. An innovative and advanced technology company located in St. Louis, Missouri, Geodata IT is an 8(a) Certified and a Veteran-Owned Small Business (VOSB). The company provides exceptional niche solutions to national security and geospatial mission requirements in the areas of advanced technology and innovative solutions development for the Department of Defense (DoD) and Intelligence Community (IC). Geodata IT is also ISO 9001:2015 certified.</p>
+
+                     <p>The vision of Geodata IT, LLC is to foster a culture that is agile in its ability to create an innovative environment that inspires exceptional solutions, integrity and teamwork.
+
+                     <p>We are committed to our customers.  Our talented professionals and specialized services are a value added compliment to our customer’s mission. As a premiere IT solutions provider supporting the U.S. Department of Defense (DoD) and the Intelligence Community (IC), Geodata IT is the ideal partner for delivering on intelligence, military, and geospatial IT requirements. With a wide range of capabilities and solutions, Geodata IT is uniquely qualified and positioned to support the customer’s mission needs.</p>
+
+                     <p>The capabilities, positioning, and focus strategy of Geodata IT can be a key asset to your services organization for federal contracting with the United States Department of Defense (DoD) and Intelligence Community (IC).  We partner with the best in the industry and aim to acquire federal contracts and sub-contracts for information technology services.  Additionally, we also provide post-sales integration and implementation services for vendors in the DoD and IC.  A federal contract acquisition, sub-contract, and vendor strategic alliance focus strategy provides unique service pipeline opportunities and access to markets we directly compete within.</p>
+                     <br>
+                     <p class="text-left text-muted">Our quality policy: Using Agile methodologies, we will continually strive to be proactive stewards of the confidentiality, integrity and availability of the information belonging to our company and our clients.</p>
+                     <br>
+
+                     <h2 class="heading">Certifications & Contract Vehicles:</h2>
+                     <!-- List code from the Atom StyleGuide -->
+                       <ul class='list-tree has-flat-children'>
+                         <li class='list-item'>SBA 8(a) Certified (Case # 306912, Exit Date: 09/01/2024)</li>
+                         <li class='list-item'>Small Disadvantaged Business (SDB)</li>
+                         <li class='list-item'>Veteran-Owned Small Business (VOSB)</li>
+                         <li class='list-item'>State of Missouri Minority Business Enterprise (MBE) Certified</li>
+                         <li class='list-item'>GSA Schedule 70 (Contract # GS35F292DA)</li>
+                         <li class='list-item'>ISO 9001:2015</li>
+                         </li>
+                       </ul>
+                       <br>
+
+                    <h2 class="heading">Associations:</h2>
+                    <!-- List code from the Atom StyleGuide -->
+                      <ul class='list-tree has-flat-children'>
+                        <li class='list-item'>American Small Business Coalition (ASBC)</li>
+                        <li class='list-item'>The Society of Industrial Security Professionals (NCMS)</li>
+                        <li class='list-item'>Hispanic Chamber of Commerce (HCC) of Metro Saint Louis, MO</li>
+                        <li class='list-item'>The Armed Forces Communications and Electronics Association (AFCEA)</li>
+                        <li class='list-item'>National Defense Transportation Association (NDTA)</li>
+                        <li class='list-item'>United States Geospatial Intelligence Foundation (USGIF)</li>
+                        <li class='list-item'>President/CEO Justin W. Bennett serves as a Co-Chairman for the United States Geospatial Intelligence Foundation (USGIF) – St. Louis Area Working Group (SLAWG)</li>
+                        </li>
+                      </ul>
+                      <br>
+
+                  <h2 class="heading">NAICS:</h2>
+                     <p>541512, 518210, 541511, 541513, 541611, 541519, 541618, 541690, 541360, 561612</p>
+                   </div>
+                   <div class="col-lg-1"></div>
+                   <div class="col-lg-3">
+
+                     <div class="logo">
+                         <br>
+                         <img src="{% static 'img/sba.png' %}" alt="" style="max-width: 150px;">
+                     </div>
+                     <br>
+                                 <div class="logo">
+                         <img src="{% static 'img/mbe.png' %}" alt="" style="max-width: 150px;">
+                     </div>
+                     <br>
+                     <div class="logo">
+                         <img src="{% static 'img/gsa.png' %}" alt="" style="max-width: 150px;">
+                     </div>
+                     <br>
+                     <div class="logo">
+                         <img src="{% static 'img/iso.png' %}" alt="" style="max-width: 175px;">
+                     </div>
+                     <br>
+                     <br>
+                       <p class="job-detail__social social social--outline">
+                           <a href="http://www.geodatait.com" data-toggle="tooltip" data-placement="top" title="Website"
+                              class="link">
+                               <i class="fa fa-link"></i>
+                           </a>
+                           <a href="https://www.linkedin.com/company/geodata-it-llc" data-toggle="tooltip" data-placement="top" title="LinkedIn" class="linkedin">
+                               <i class="fa fa-linkedin"></i>
+                           </a>
+                           <a href="https://twitter.com/geodatait" data-toggle="tooltip" data-placement="top" title="Twitter" class="twitter">
+                               <i class="fa fa-twitter"></i>
+                           </a>
+                           <a href="https://github.com/geodata-it" data-toggle="tooltip" data-placement="top" title="Github" class="github">
+                               <i class="fa fa-github"></i>
+                           </a>
+
+                       </p>
+
+                   </div>
+               </div>
+           </div>
+       </section>
+
+    <section style="background-image: url({% static 'img/startup.jpg' %}); " class="section-divider">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>Start searching for your new job now! </p>
+                    <p><a href="{% url 'jobs:jobs' %}" class="btn btn-outline-light">See our job offers </a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

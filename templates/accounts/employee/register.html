@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}
+    Employee Register
+{% endblock %}
+
+{% block content %}
+
+    <div class="col-lg-6 offset-3">
+        <div class="box">
+            <h3 class="heading">New account</h3>
+            <p class="lead">Not registered yet? Please complete the form below.</p>
+            <p class="text-muted">Forgot your password? <a href="mailto:cheryl.hughey@geodatait.com">Contact us</a></p>
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger alert-dismissable">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <form action="" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    {% if field.name == 'Clearance' %}
+
+                    {% else %}
+
+                        <div class="form-group">
+                            <label for="id_{{ field.name }}">{{ field.label }}</label>
+                            <input type="{{ field.field.widget.input_type }}"
+                                   class="form-control"
+                                   name="{{ field.name }}"
+                                   id="id_{{ field.name }}"
+                                   placeholder="{{ field.field.widget.attrs.placeholder }}">
+                        </div>
+
+                    {% endif %}
+                {% endfor %}
+
+                <div class="text-center">
+
+                    <button type="submit" class="btn btn-outline-white-primary"><i class="fa fa-user-md"></i> Register
+                    </button>
+                </div>
+                </br>
+                <div>
+                  <center><p><h3>Upload your resume <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBg1yG7V99gL8NdQMwxdtqSoHzPUad3T8xNb-8N82V7R1XoA/viewform?usp=sf_link"> HERE.</a></h3>
+                  <br /> No Google account? <a href="mailto:resumes@geodatait.com">Email your resume.</a></p>
+                  <i>Please note that your application is not complete until you upload a resume. Thank you.</i></br></center>
+
+                </div>
+
+
+
+    </div>
+
+{% endblock %}

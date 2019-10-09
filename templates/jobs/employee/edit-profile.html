@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Edit Profile
+{% endblock %}
+
+{% block content %}
+    <div class="col-lg-6 offset-3">
+        <div class="box">
+            <h3 class="heading">Edit Profile</h3>
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger alert-dismissable">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <form action="" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    {% if field.name == 'Clearance' %}
+
+                        <div class="form-group">
+                            <label for="Clearance">Clearance</label>
+                            <br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" {% if field.value == 'Top_Secret' %} checked {% endif %}
+                                       type="radio" name="Clearance" id="Top_Secret Clearance"
+                                       value="Top_Secret">
+                                <label class="form-check-label" for="Top_Secret">Top_Secret</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" {% if field.value == 'Secret' %} checked {% endif %}
+                                       type="radio" name="Clearance" id="Secret"
+                                       value="Secret">
+                                <label class="form-check-label" for="Secret">Secret</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" {% if field.value == 'None' %} checked {% endif %}
+                                       type="radio" name="Clearance" id="None"
+                                       value="None">
+                                <label class="form-check-label" for="None">None</label>
+                            </div>
+                        </div>
+
+                    {% else %}
+
+                        <div class="form-group">
+                            <label for="id_{{ field.name }}">{{ field.label }}</label>
+                            <input type="{{ field.field.widget.input_type }}"
+                                   class="form-control"
+                                   name="{{ field.name }}"
+                                   id="id_{{ field.name }}"
+                                   value="{{ field.value }}"
+                                   placeholder="{{ field.field.widget.attrs.placeholder }}">
+                        </div>
+
+                    {% endif %}
+                {% endfor %}
+                <div class="text-center">
+                    <button type="submit" class="btn btn-outline-white-primary">
+                        <i class="fa fa-signing"></i> Update
+                    </button>
+                </div>
+                </br>
+                <div>
+                  <center><p><h3>Upload your resume <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBg1yG7V99gL8NdQMwxdtqSoHzPUad3T8xNb-8N82V7R1XoA/viewform?usp=sf_link"> HERE.</a></h3>
+                  <br /> No Google account? <a href="mailto:resumes@geodatait.com">Email your resume.</a></p></br>
+                  <i>Please note that your application is not complete until you upload a resume. Thank you.</i></br></center>
+                </div>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

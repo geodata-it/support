@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+
+    <div id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+         class="modal fade">
+        <div role="document" class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="exampleModalLabel" class="modal-title">Customer Login</h4>
+                    <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <input id="email_modal" type="text" placeholder="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input id="password_modal" type="password" placeholder="password" class="form-control">
+                        </div>
+                        <p class="text-center">
+                            <button type="button" class="btn btn-outline-white-primary"><i class="fa fa-sign-in"></i>
+                                Log in
+                            </button>
+                        </p>
+                    </form>
+                    <p class="text-center text-muted">Not registered yet?</p>
+                    <p class="text-center text-muted"><a href="client-register.html"><strong>Register now</strong></a>!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- *** LOGIN MODAL END ***-->
+    <section>
+           <div class="container">
+               <div class="row">
+                   <div class="col-lg-8">
+                     <h2 class="heading">Clients</h2>
+<!-- List is from the Atom StyleGuide -->
+                     <p>Geodata IT has a presence in four states. We proudly serve customers in the Department of Defense (DoD) and Intelligence Community (IC). With the majority of our staff having a background in military service, you can be assured that our delivery will be exceptional and mission focused. Our publicaly available list of clients includes:</p>
+
+                     <ul class='list-tree has-flat-children'>
+                       <li class='list-item'>National Geospatial-Intelligence Agency (NGA)</li>
+                       <li class='list-item'>ManTech</li>
+                       <li class='list-item'>University of Missouri – Columbia</li>
+                       <li class='list-item'>Ball Aerospace Technologies Corporation (BATC)</li>
+                       <li class='list-item'>Air Mobility Command (AMC)</li>
+                       <li class='list-item'>United States Transportation Command (USTRANSCOM)</li>
+                       <li class='list-item'>Defense Information Systems Agency (DISA)</li>
+                       <li class='list-item'>Department of Interior (DOI) Fish and Wildlife Services (FWS)</li>
+                       <li class='list-item'>Chameleon IS</li>
+                       <li class='list-item'>General Dynamics IT (GDIT)</li>
+                       <li class='list-item'>Sawdey Solution Services (S3)</li>
+                       <li class='list-item'>CSRA, Inc.</li>
+                       <li class='list-item'>Boundless</li>
+                       <li class='list-item'>OGSystems</li>
+                       <li class='list-item'>Hewlett-Packard Enterprise Services (HPES)</li>
+                       <li class='list-item'>Missile Defense Agency (MDA)</li>
+                       <li class='list-item'>Torch Technologies</li>
+                       </li>
+                     </ul>
+
+                     <p class="text-left text-muted">Our quality policy: Using Agile methodologies, we will continually strive to be proactive stewards of the confidentiality, integrity and availability of the information belonging to our company and our clients.</p>
+                   </div>
+                   <div class="col-lg-1"></div>
+                   <div class="col-lg-3">
+                     <h2 class="heading">Partners</h2>
+
+                     <div class="logo">
+                       <center>
+                         <img src="{% static 'img/esri.png' %}" alt="Esri logo" style="max-width: 200px;">
+                       </center>
+                     </div>
+                    <br>
+
+                    <div class="logo">
+                      <center>
+                        <img src="{% static 'img/elastic.png' %}" alt="Elastic logo" style="max-width: 150px;">
+                      </center>
+                     </div>
+                     <br>
+
+                   <div class="logo">
+                      <center>
+                        <img src="{% static 'img/spatial.png' %}" alt="Spatial Networks logo" style="max-width: 100px;">
+                      </center>
+                     </div>
+                     <br>
+                     <br>
+                       <!-- <p class="job-detail__social social social--outline">
+                           <a href="http://www.geodatait.com" data-toggle="tooltip" data-placement="top" title="Website"
+                              class="link">
+                               <i class="fa fa-link"></i>
+                           </a>
+                           <a href="https://www.linkedin.com/company/geodata-it-llc" data-toggle="tooltip" data-placement="top" title="LinkedIn" class="linkedin">
+                               <i class="fa fa-linkedin"></i>
+                           </a>
+                           <a href="https://twitter.com/geodatait" data-toggle="tooltip" data-placement="top" title="Twitter" class="twitter">
+                               <i class="fa fa-twitter"></i>
+                           </a>
+                           <a href="https://github.com/geodata-it" data-toggle="tooltip" data-placement="top" title="Github" class="github">
+                               <i class="fa fa-github"></i>
+                           </a>
+                       </p> -->
+                   </div>
+               </div>
+           </div>
+       </section>
+
+    <section style="background-image: url({% static 'img/startup.jpg' %}); " class="section-divider">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>Past Performance</p>
+                    <p><a href="static/img/capabilities.pdf" class="btn btn-outline-light">Click for capabilities</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
